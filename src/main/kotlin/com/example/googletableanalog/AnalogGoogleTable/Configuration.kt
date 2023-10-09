@@ -15,7 +15,7 @@ class Configuration {
     }
 
     @PostMapping("/send-data")
-    fun sendData(){
+    fun sendData() {
         //
     }
 }
