@@ -1,8 +1,8 @@
 package com.example.googletableanalog.AnalogGoogleTable
 
-import org.springframework.context.annotation.Configuration
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
 //Класс конфигурации. Описываются методы для взаимодействия с бэкендом
@@ -15,7 +15,8 @@ class Configuration {
     }
 
     @PostMapping("/send-data")
-    fun sendData() {
-        //
+    fun sendData(@RequestBody data: String) {
+        //Данные уходят в AppLogic
+        AppLogic(data)
     }
 }
