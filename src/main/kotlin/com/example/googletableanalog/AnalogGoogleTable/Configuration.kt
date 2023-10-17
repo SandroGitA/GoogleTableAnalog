@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class Configuration {
 
+    //Основной метод, который будет отдавать стартову страницу
     @GetMapping("/")
     fun main(): String {
         return "MainPage"
     }
 
+    //Метод, куда будут отправляться запросы с клиента
     @PostMapping("/send-data")
     fun sendData(@RequestBody data: String) {
         //Данные уходят в AppLogic
