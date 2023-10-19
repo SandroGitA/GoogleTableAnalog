@@ -17,8 +17,8 @@ class Configuration {
 
     //Метод, куда будут отправляться запросы с клиента
     @PostMapping("/send-data")
-    fun sendData(@RequestBody data: String) {
+    fun sendData(@RequestBody json: String) {
         //Данные уходят в AppLogic
-        AppLogic(data)
+        AppLogic(json)
     }
 }
