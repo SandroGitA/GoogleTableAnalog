@@ -1,5 +1,6 @@
 package com.example.googletableanalog.AnalogGoogleTable
 
+import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 
 /*Класс логики бэкенда
@@ -8,13 +9,12 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 Создается аналог таблицы, и парсится каждое значение,
 на предмет операции +-=* / или просто числа
 */
-class AppLogic(data: String) {
+class AppLogic(jsonDataString: String) {
     //Создаем объект для парсинга
-    private val jsonData = jacksonObjectMapper()
-
-    val md = jsonData.readValue(data, ClientCoordinate::class.java)
-
-    val nll = "test"
+    private val jsonDataMapper = jacksonObjectMapper()
+    //Сериализация в один объект
+    val jsonData = jsonDataMapper.readValue(jsonDataString, ClientCoordinate::class.java)
+    val jsonDataList = (jsonDataMapper.readValue<ClientCoordinate>(jsonDataString, ClientCoordinate::class.java))
 }
 
 //Класс координаты,
